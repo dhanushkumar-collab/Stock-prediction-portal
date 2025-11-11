@@ -1,0 +1,198 @@
+/* ==================== GLOBAL LAYOUT SHELL ==================== */
+/* Ensure footer stays at bottom on short pages */
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: #0f1720;
+  color: #dbeafe;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* ==================== NAVBAR / HEADER ==================== */
+/* Compact header with fixed height and tight spacing */
+.subtle-navbar {
+  height: 56px;               /* fixed header height */
+  min-height: 56px;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  background-color: #0b1220;  /* very dark */
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+/* Brand (title) */
+.subtle-navbar .navbar-brand,
+.subtle-title {
+  color: #f5f7fa;
+  letter-spacing: 0.2px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.subtle-navbar .navbar-brand:hover,
+.subtle-title:hover {
+  color: #dbeafe;
+}
+
+/* Compact header buttons layout */
+.subtle-navbar .d-flex {
+  gap: 8px;
+}
+.subtle-navbar .d-flex .btn {
+  padding: 6px 10px;
+  font-size: 0.88rem;
+  border-radius: 8px;
+}
+
+/* ==================== SUBTLE BUTTON STYLES ==================== */
+/* Shared subtle button style (used if you need it) */
+.btn-subtle,
+.btn-subtle-alt {
+  background: rgba(255, 255, 255, 0.04);
+  color: #e6eef8;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: all 0.14s ease-in-out;
+}
+
+/* Slight base tint differences to distinguish actions */
+.btn-subtle {
+  background: rgba(0, 123, 255, 0.05);   /* subtle blue tint */
+}
+.btn-subtle-alt {
+  background: rgba(40, 167, 69, 0.05);    /* subtle green tint */
+}
+
+.btn-subtle:hover {
+  background: rgba(0, 123, 255, 0.12);
+  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.06);
+  transform: translateY(-1px);
+  color: #eaf6ff;
+}
+
+.btn-subtle-alt:hover {
+  background: rgba(40, 167, 69, 0.12);
+  box-shadow: 0 6px 12px rgba(40, 167, 69, 0.05);
+  transform: translateY(-1px);
+  color: #eafff1;
+}
+
+/* ==================== MAIN / HERO SECTION ==================== */
+/* Main flexes to fill remaining viewport between header and footer */
+.app-main {
+  flex: 1 1 auto;            /* grow/shrink to fill space */
+  display: flex;
+  align-items: center;       /* vertical center */
+  justify-content: center;   /* horizontal center */
+  padding-top: 12px;
+  padding-bottom: 8px;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+
+/* Container styles inside main */
+.app-main .container {
+  max-width: 960px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.main-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0 0 6px 0;
+  line-height: 1.1;
+}
+
+.main-desc {
+  color: #bcd6ff;
+  max-width: 720px;
+  margin: 0 auto 12px auto;
+  line-height: 1.4;
+  font-size: 0.95rem;
+}
+
+/* Single Login button in main (primary CTA) */
+.app-main .btn-primary {
+  border-radius: 8px;
+  font-size: 1rem;
+  padding: 8px 20px;
+  letter-spacing: 0.3px;
+  font-weight: 600;
+  transition: all 0.18s ease-in-out;
+}
+
+.app-main .btn-primary:hover {
+  background-color: #0b5ed7;
+  box-shadow: 0 6px 16px rgba(11, 94, 215, 0.16);
+  transform: translateY(-1px);
+}
+
+/* ==================== FOOTER ==================== */
+/* Slim footer with fixed height */
+.footer {
+  height: 44px;
+  min-height: 44px;
+  padding: 6px 12px;
+  background-color: #0b1220;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  box-sizing: border-box;
+}
+
+/* hide the extra hr (keeps footer compact) */
+.footer-line { display: none; }
+
+.footer-text {
+  font-size: 0.88rem;
+  color: #9ca3af;
+  margin: 0;
+}
+
+/* ==================== ACCESSIBILITY & HELPERS ==================== */
+a.navbar-brand { text-decoration: none; }
+.d-flex.gap-3 { gap: 12px; }
+
+/* ==================== RESPONSIVE ADJUSTMENTS ==================== */
+@media (max-width: 900px) {
+  .app-main .container { max-width: 720px; }
+  .main-title { font-size: 1.35rem; }
+}
+
+@media (max-width: 576px) {
+  .subtle-navbar { height: 52px; min-height: 52px; }
+  .subtle-navbar .navbar-brand { font-size: 0.95rem; }
+  .subtle-navbar .d-flex .btn { padding: 6px 8px; font-size: 0.85rem; }
+  .main-title { font-size: 1.2rem; }
+  .main-desc { font-size: 0.88rem; padding: 0 8px; }
+  .app-main { padding-top: 10px; padding-bottom: 8px; }
+  .footer { height: 40px; min-height: 40px; font-size: 0.86rem; }
+}
+
+/* small vertical-height extra fallback if very short screens appear */
+@media (max-height: 640px) {
+  .main-title { font-size: 1.25rem; }
+  .main-desc { font-size: 0.86rem; }
+  .subtle-navbar { height: 52px; }
+  .footer { height: 40px; }
+}
